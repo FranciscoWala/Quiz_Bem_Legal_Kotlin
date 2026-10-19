@@ -8,8 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.quizdesafio.correcaoPerguntas.CriarTelaPrincipal
-import com.example.quizdesafio.correcaoPerguntas.Questions
+import com.example.quizdesafio.correcaoPerguntas.Questions3
 import com.example.quizdesafio.ui.theme.QuizDesafioTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             QuizDesafioTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Questions(modifier = Modifier.padding(innerPadding))
+                    Questions3(modifier = Modifier.padding(innerPadding))
                 }
             }
         }

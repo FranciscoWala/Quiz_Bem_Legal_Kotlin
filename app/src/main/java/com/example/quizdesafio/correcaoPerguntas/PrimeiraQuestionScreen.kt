@@ -116,7 +116,6 @@ fun Questions(modifier: Modifier = Modifier) {
                         ) {
                             Text(
                                 text = "Qual a capital da França?",
-                                fontWeight = FontWeight.SemiBold,
                                 fontSize = 20.sp
                             )
                         }
