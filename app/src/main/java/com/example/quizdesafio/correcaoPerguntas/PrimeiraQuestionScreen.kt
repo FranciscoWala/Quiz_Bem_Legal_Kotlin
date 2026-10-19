@@ -28,16 +28,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.quizdesafio.R
 
 @Composable
-@Preview(showBackground = true, showSystemUi = true)
-fun Questions(modifier: Modifier = Modifier) {
+fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavController) {
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -157,7 +156,9 @@ fun Questions(modifier: Modifier = Modifier) {
                         Button (
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            onClick = {},
+                            onClick = {
+                                navController.navigate("SegundaQuestionScreen")
+                            },
                             shape = RoundedCornerShape(10.dp),
                             border = BorderStroke(width = 1.dp, Color.Gray),
                             colors = ButtonDefaults.buttonColors(Color.Transparent)

@@ -24,14 +24,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.quizdesafio.R
 
 @Composable
-@Preview(showBackground = true, showSystemUi = true)
-fun CriarTelaPrincipal (modifier: Modifier = Modifier) {
+fun MenuScreen (modifier: Modifier = Modifier, navController: NavController) {
     Box(modifier = modifier
         .fillMaxSize()
         .background(Color(0xFF82D9F7))
@@ -62,7 +61,7 @@ fun CriarTelaPrincipal (modifier: Modifier = Modifier) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "SENAI QUIZ",
+                    text = "XENAI QUIZ",
                     fontWeight = Bold,
                     fontSize = 40.sp,
                     textAlign = TextAlign.Center
@@ -74,7 +73,9 @@ fun CriarTelaPrincipal (modifier: Modifier = Modifier) {
                 Button(
                     modifier = Modifier
                         .width(225.dp),
-                    onClick = {},
+                    onClick = {
+                        navController.navigate("PrimeiraQuestionScreen")
+                    },
                     colors = ButtonDefaults.buttonColors(Color(0xFFFFEB3B)),
                     border = BorderStroke(width = 1.dp, Color.Black)
                 ) {

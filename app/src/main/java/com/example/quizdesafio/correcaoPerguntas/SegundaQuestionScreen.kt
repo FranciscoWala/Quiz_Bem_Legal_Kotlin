@@ -28,14 +28,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.quizdesafio.R
 
 @Composable
-fun QuestionsSecond(modifier: Modifier = Modifier) {
+fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavController) {
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -113,7 +113,7 @@ fun QuestionsSecond(modifier: Modifier = Modifier) {
                             horizontalArrangement = Arrangement.Center
                         ) {
                             Text(
-                                text = "Qual planeta é conhecido como planeta verde?",
+                                text = "Qual planeta é conhecido como planeta vermelho?",
                                 fontSize = 20.sp
                             )
                         }
@@ -155,7 +155,7 @@ fun QuestionsSecond(modifier: Modifier = Modifier) {
                         Button(
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            onClick = {},
+                            onClick = {navController.navigate("TerceiraQuestionScreen")},
                             shape = RoundedCornerShape(10.dp),
                             border = BorderStroke(width = 1.dp, Color.Gray),
                             colors = ButtonDefaults.buttonColors(Color.Transparent)

@@ -8,7 +8,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.quizdesafio.correcaoPerguntas.Questions3
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.quizdesafio.correcaoPerguntas.PrimeiraQuestionScreen
+import com.example.quizdesafio.correcaoPerguntas.SegundaQuestionScreen
+import com.example.quizdesafio.correcaoPerguntas.TerceiraQuestion
 import com.example.quizdesafio.ui.theme.QuizDesafioTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,7 +23,23 @@ class MainActivity : ComponentActivity() {
         setContent {
             QuizDesafioTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Questions3(modifier = Modifier.padding(innerPadding))
+
+                    val navController = rememberNavController()
+
+                    NavHost(
+                        navController = navController,
+                        startDestination = "MenuScreen"
+                    ) {
+                        composable(route = "PrimeiraQuestionsScreen") {
+                            PrimeiraQuestionScreen(modifier = Modifier.padding(innerPadding), navController)
+                        }
+                        composable(route = "SegundaQuestionsScreen") {
+                            SegundaQuestionScreen(modifier = Modifier.padding(innerPadding), navController)
+                        }
+                        composable(route = "TerceiraQuestionsScreen") {
+                            TerceiraQuestion(modifier = Modifier.padding(innerPadding), navController)
+                        }
+                    }
                 }
             }
         }
