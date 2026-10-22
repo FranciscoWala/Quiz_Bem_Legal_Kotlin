@@ -1,4 +1,4 @@
-package com.example.quizdesafio.correcaoPerguntas
+package com.example.quizdesafio.screensPerguntas
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -28,15 +28,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quizdesafio.R
 
 @Composable
-fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun TerceiraQuestionScreen (modifier: Modifier = Modifier, navController: NavController) {
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -73,12 +73,12 @@ fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavCont
                             size = 10.dp
                         )
                     )
-                .background(color = Color(0xFF66CC6D)),
+                    .background(color = Color(0xFF66CC6D)),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Pergunta 1 de 3",
+                    text = "Pergunta 3 de 3",
                     textAlign = TextAlign.Center,
                     fontSize = 20.sp
                 )
@@ -100,7 +100,7 @@ fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavCont
                         .fillMaxWidth()
                         .padding(10.dp),
                     contentAlignment = Alignment.Center
-                ){
+                ) {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth(),
@@ -114,12 +114,13 @@ fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavCont
                             horizontalArrangement = Arrangement.Center
                         ) {
                             Text(
-                                text = "Qual a capital da França?",
+                                text = "Qual a ligação presente na célula H2O?",
+                                fontWeight = FontWeight.SemiBold,
                                 fontSize = 20.sp
                             )
                         }
 
-                        Button (
+                        Button(
                             modifier = Modifier
                                 .fillMaxWidth(),
                             onClick = {},
@@ -131,13 +132,13 @@ fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavCont
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Londres",
+                                text = "Iônica",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
                         }
 
-                        Button (
+                        Button(
                             modifier = Modifier
                                 .fillMaxWidth(),
                             onClick = {},
@@ -148,30 +149,12 @@ fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavCont
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Berlim",
+                                text = "Covalente",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
                         }
-                        Button (
-                            modifier = Modifier
-                                .fillMaxWidth(),
-                            onClick = {
-                                navController.navigate("SegundaQuestionScreen")
-                            },
-                            shape = RoundedCornerShape(10.dp),
-                            border = BorderStroke(width = 1.dp, Color.Gray),
-                            colors = ButtonDefaults.buttonColors(Color.Transparent)
-                        ) {
-                            Text(
-                                modifier = Modifier
-                                    .fillMaxWidth(),
-                                text = "Paris",
-                                textAlign = TextAlign.Left,
-                                color = Color.Black
-                            )
-                        }
-                        Button (
+                        Button(
                             modifier = Modifier
                                 .fillMaxWidth(),
                             onClick = {},
@@ -182,7 +165,23 @@ fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavCont
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Madri",
+                                text = "Metálica",
+                                textAlign = TextAlign.Left,
+                                color = Color.Black
+                            )
+                        }
+                        Button(
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            onClick = {navController.navigate("StatusAvaliacaoScreen")},
+                            shape = RoundedCornerShape(10.dp),
+                            border = BorderStroke(width = 1.dp, Color.Gray),
+                            colors = ButtonDefaults.buttonColors(Color.Transparent)
+                        ) {
+                            Text(
+                                modifier = Modifier
+                                    .fillMaxWidth(),
+                                text = "Amorosa",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
@@ -191,8 +190,6 @@ fun PrimeiraQuestionScreen(modifier: Modifier = Modifier, navController: NavCont
                     }
                 }
             }
-
-
         }
     }
 }

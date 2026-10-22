@@ -1,4 +1,4 @@
-package com.example.quizdesafio.correcaoPerguntas
+package com.example.quizdesafio.screensPerguntas
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -28,7 +28,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,7 +35,7 @@ import androidx.navigation.NavController
 import com.example.quizdesafio.R
 
 @Composable
-fun TerceiraQuestion(modifier: Modifier = Modifier,navController: NavController) {
+fun SegundaQuestionScreen (modifier: Modifier = Modifier, navController: NavController) {
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -78,7 +77,7 @@ fun TerceiraQuestion(modifier: Modifier = Modifier,navController: NavController)
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Pergunta 3 de 3",
+                    text = "Pergunta 2 de 3",
                     textAlign = TextAlign.Center,
                     fontSize = 20.sp
                 )
@@ -114,8 +113,7 @@ fun TerceiraQuestion(modifier: Modifier = Modifier,navController: NavController)
                             horizontalArrangement = Arrangement.Center
                         ) {
                             Text(
-                                text = "Qual a ligação presente na célula H2O?",
-                                fontWeight = FontWeight.SemiBold,
+                                text = "Qual planeta é conhecido como planeta vermelho?",
                                 fontSize = 20.sp
                             )
                         }
@@ -132,7 +130,7 @@ fun TerceiraQuestion(modifier: Modifier = Modifier,navController: NavController)
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Iônica",
+                                text = "Vênus",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
@@ -141,7 +139,7 @@ fun TerceiraQuestion(modifier: Modifier = Modifier,navController: NavController)
                         Button(
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            onClick = {},
+                            onClick = {navController.navigate("TerceiraQuestionScreen")},
                             shape = RoundedCornerShape(10.dp),
                             border = BorderStroke(width = 1.dp, Color.Gray),
                             colors = ButtonDefaults.buttonColors(Color.Transparent)
@@ -149,7 +147,7 @@ fun TerceiraQuestion(modifier: Modifier = Modifier,navController: NavController)
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Covalente",
+                                text = "Marte",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
@@ -165,7 +163,7 @@ fun TerceiraQuestion(modifier: Modifier = Modifier,navController: NavController)
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Metálica",
+                                text = "Júpiter",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
@@ -181,7 +179,7 @@ fun TerceiraQuestion(modifier: Modifier = Modifier,navController: NavController)
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Amorosa",
+                                text = "Saturno",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )

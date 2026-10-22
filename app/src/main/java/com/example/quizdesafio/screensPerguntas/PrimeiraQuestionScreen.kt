@@ -1,4 +1,4 @@
-package com.example.quizdesafio.correcaoPerguntas
+package com.example.quizdesafio.screensPerguntas
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -22,6 +22,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -33,9 +35,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quizdesafio.R
+import com.example.quizdesafio.respostas.QuizViewModel
 
 @Composable
-fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun PrimeiraQuestionScreen (modifier: Modifier = Modifier, navController: NavController, quizViewModel: QuizViewModel) {
+
+    val respostaCorreta by quizViewModel.respostaCorretaMod.observeAsState("")
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -72,12 +78,12 @@ fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavContr
                             size = 10.dp
                         )
                     )
-                    .background(color = Color(0xFF66CC6D)),
+                .background(color = Color(0xFF66CC6D)),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Pergunta 2 de 3",
+                    text = "Pergunta 1 de 3",
                     textAlign = TextAlign.Center,
                     fontSize = 20.sp
                 )
@@ -99,7 +105,7 @@ fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavContr
                         .fillMaxWidth()
                         .padding(10.dp),
                     contentAlignment = Alignment.Center
-                ) {
+                ){
                     Column(
                         modifier = Modifier
                             .fillMaxWidth(),
@@ -113,12 +119,12 @@ fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavContr
                             horizontalArrangement = Arrangement.Center
                         ) {
                             Text(
-                                text = "Qual planeta é conhecido como planeta vermelho?",
+                                text = "Qual a capital da França?",
                                 fontSize = 20.sp
                             )
                         }
 
-                        Button(
+                        Button (
                             modifier = Modifier
                                 .fillMaxWidth(),
                             onClick = {},
@@ -130,13 +136,13 @@ fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavContr
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Vênus",
+                                text = "Londres",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
                         }
 
-                        Button(
+                        Button (
                             modifier = Modifier
                                 .fillMaxWidth(),
                             onClick = {},
@@ -147,15 +153,17 @@ fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavContr
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Marte",
+                                text = "Berlim",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
                         }
-                        Button(
+                        Button (
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            onClick = {navController.navigate("TerceiraQuestionScreen")},
+                            onClick = {
+                                navController.navigate("SegundaQuestionScreen")
+                            },
                             shape = RoundedCornerShape(10.dp),
                             border = BorderStroke(width = 1.dp, Color.Gray),
                             colors = ButtonDefaults.buttonColors(Color.Transparent)
@@ -163,12 +171,12 @@ fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavContr
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Júpiter",
+                                text = "Paris",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
                         }
-                        Button(
+                        Button (
                             modifier = Modifier
                                 .fillMaxWidth(),
                             onClick = {},
@@ -179,7 +187,7 @@ fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavContr
                             Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Saturno",
+                                text = "Madri",
                                 textAlign = TextAlign.Left,
                                 color = Color.Black
                             )
@@ -188,6 +196,8 @@ fun SegundaQuestionScreen(modifier: Modifier = Modifier, navController: NavContr
                     }
                 }
             }
+
+
         }
     }
 }

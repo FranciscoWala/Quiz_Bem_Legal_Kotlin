@@ -1,5 +1,7 @@
 package com.example.quizdesafio
 
+import android.annotation.SuppressLint
+import androidx.lifecycle.viewmodel.compose.viewModel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,12 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.quizdesafio.correcaoPerguntas.PrimeiraQuestionScreen
-import com.example.quizdesafio.correcaoPerguntas.SegundaQuestionScreen
-import com.example.quizdesafio.correcaoPerguntas.TerceiraQuestion
+import com.example.quizdesafio.respostas.QuizViewModel
+import com.example.quizdesafio.screensPerguntas.MenuScreen
+import com.example.quizdesafio.screensPerguntas.PrimeiraQuestionScreen
+import com.example.quizdesafio.screensPerguntas.SegundaQuestionScreen
+import com.example.quizdesafio.screensPerguntas.StatusAvaliacaoScreen
+import com.example.quizdesafio.screensPerguntas.TerceiraQuestionScreen
 import com.example.quizdesafio.ui.theme.QuizDesafioTheme
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("ViewModelConstructorInComposable")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,14 +36,20 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = "MenuScreen"
                     ) {
-                        composable(route = "PrimeiraQuestionsScreen") {
-                            PrimeiraQuestionScreen(modifier = Modifier.padding(innerPadding), navController)
+                        composable(route = "MenuScreen") {
+                            MenuScreen(modifier = Modifier.padding(innerPadding), navController)
                         }
-                        composable(route = "SegundaQuestionsScreen") {
+                        composable(route = "PrimeiraQuestionScreen") {
+                            PrimeiraQuestionScreen(modifier = Modifier.padding(innerPadding), navController, quizViewModel = QuizViewModel())
+                        }
+                        composable(route = "SegundaQuestionScreen") {
                             SegundaQuestionScreen(modifier = Modifier.padding(innerPadding), navController)
                         }
-                        composable(route = "TerceiraQuestionsScreen") {
-                            TerceiraQuestion(modifier = Modifier.padding(innerPadding), navController)
+                        composable(route = "TerceiraQuestionScreen") {
+                            TerceiraQuestionScreen(modifier = Modifier.padding(innerPadding), navController)
+                        }
+                        composable(route = "StatusAvaliacaoScreen") {
+                            StatusAvaliacaoScreen(modifier = Modifier.padding(innerPadding), navController)
                         }
                     }
                 }

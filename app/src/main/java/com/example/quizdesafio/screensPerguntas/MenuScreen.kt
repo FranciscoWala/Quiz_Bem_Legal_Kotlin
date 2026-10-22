@@ -1,4 +1,4 @@
-package com.example.quizdesafio.correcaoPerguntas
+package com.example.quizdesafio.screensPerguntas
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
